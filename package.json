@@ -1,0 +1,13 @@
+{
+  "name": "ultimate-traveller-public-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Public design demonstration with fictional browser-local workflows.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "check": "node --check sandbox.js && node --check preview.js && node --check experience.js && node --check admin.js",
+    "test": "node --test tests/*.test.js"
+  }
+}

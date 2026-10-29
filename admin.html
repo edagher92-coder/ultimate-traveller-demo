@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'none'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"><meta name="referrer" content="no-referrer">
+  <title>Browser demo desk · The Ultimate Traveller</title>
+  <style>
+    :root { color-scheme:light; --green:#203633; --paper:#fffefa; --ivory:#f6f4ec; --sage:#dbe4d9; --line:#c4cec2; --muted:#52625a; }
+    * { box-sizing:border-box; } body { margin:0; background:var(--ivory); color:var(--green); font:16px/1.55 "Segoe UI",sans-serif; } main { width:min(1100px,calc(100% - 32px)); margin:2rem auto 5rem; } a { color:inherit; text-underline-offset:4px; } h1,h2,h3 { font-family:Georgia,serif; font-weight:400; line-height:1.15; } h1 { font-size:clamp(2rem,5vw,3.7rem); margin:.7rem 0 1rem; } h2 { font-size:2rem; } h3 { font-size:1.4rem; } .banner { padding:.7rem 1rem; background:var(--green); color:white; text-align:center; } .muted,small { color:var(--muted); } .panel,article { padding:clamp(1rem,3vw,2rem); border:1px solid var(--line); background:var(--paper); margin:1rem 0; } .row { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; } button { min-height:44px; padding:.65rem 1rem; border:1px solid var(--green); background:var(--green); color:white; font:inherit; cursor:pointer; } button.secondary { background:transparent; color:var(--green); } button:disabled { opacity:.65; cursor:wait; } input,select,textarea { width:100%; min-height:44px; padding:.6rem; border:1px solid #839387; background:white; color:var(--green); font:inherit; } textarea { resize:vertical; min-height:95px; } label { display:block; margin:1rem 0 .35rem; font-weight:600; } label.check { display:flex; gap:.7rem; align-items:flex-start; } input[type=checkbox] { width:22px; min-height:22px; flex:0 0 22px; margin-top:.2rem; } .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 1.3rem; } .full { grid-column:1/-1; } :focus-visible { outline:3px solid #a84f35; outline-offset:3px; } .skip { position:absolute; top:-80px; padding:1rem; background:white; } .skip:focus { top:0; } .status { min-height:1.6rem; font-weight:600; overflow-wrap:anywhere; } .badge { display:inline-block; background:var(--sage); padding:.2rem .6rem; font-size:.85rem; } .enquiry-copy { white-space:pre-wrap; overflow-wrap:anywhere; } .status-form { max-width:360px; } .status-form button { margin-top:.6rem; } [hidden] { display:none !important; } .button-row { margin-top:1rem; } .token-input { max-width:700px; } @media(max-width:600px) { .grid { grid-template-columns:1fr; } main { margin-top:1.5rem; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to demo desk</a>
+  <div class="banner">Browser-only demonstration · fictional details only · no shared customer records</div>
+  <main id="main">
+    <a href="index.html">← Public demo</a>
+    <p class="muted">The Ultimate Traveller</p>
+    <h1>A small desk for travel ideas.</h1>
+    <p>Review the fictional enquiries saved by this browser and edit its promotion drafts. This is an interactive simulation, with no shared backend or login. Nothing is sent to Susie, emailed, booked, charged or published. Other people and devices cannot see your demo records.</p>
+    <section class="panel" aria-labelledby="sandbox-title">
+      <h2 id="sandbox-title">Your browser’s demo desk</h2>
+      <p>Try an enquiry on the site, return here in the same browser, and refresh the desk. Promotion edits also appear only in this browser. Use fictional details. Shared devices share this browser’s stored demo data.</p>
+      <button id="reset-demo" class="secondary" type="button">Reset this browser’s demo data</button>
+      <div id="reset-confirmation" hidden><p>Reset removes this browser’s fictional enquiries and restores the original promotion drafts. Continue?</p><button id="confirm-reset" type="button">Yes, reset demo data</button> <button id="cancel-reset" class="secondary" type="button">Keep my demo data</button></div>
+    </section>
+    <p id="desk-status" class="status" role="status" aria-live="polite" tabindex="-1"></p>
+    <div id="desk-content" hidden>
+      <div class="row"><h2>Enquiries</h2><button id="refresh-button" class="secondary" type="button">Refresh desk</button></div>
+      <p class="muted">Status changes are browser-only demo tracking. “Contacted” does not send a message.</p>
+      <div id="enquiries"></div>
+      <h2>Promotion drafts</h2>
+      <p>Approval is a demo flag only. An offer needs approval, both valid dates and nonblank terms before it can show an active state. All states stay visible in this demo; an actual launch needs separate approval.</p>
+      <p id="business-date" class="muted"></p>
+      <div id="offers"></div>
+    </div>
+    <noscript><p>This browser-only demo dashboard needs JavaScript. Open the public demo to read the draft travel direction.</p></noscript>
+  </main>
+  <script src="sandbox.js"></script><script src="admin.js"></script>
+</body>
+</html>
