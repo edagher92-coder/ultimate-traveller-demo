@@ -182,6 +182,12 @@
     if (!finderStage) return;
     finderStage.setAttribute("tabindex", "-1");
     finderStage.focus({ preventScroll: true });
+    // Lower choices can leave the next question above the visitor's scroll position.
+    const heading = finderStage.getBoundingClientRect();
+    const context = (finderOptions.hidden ? finderResult : finderOptions).getBoundingClientRect();
+    if (heading.top < 24 || heading.bottom > window.innerHeight - 24 || context.top > window.innerHeight - 72) {
+      finderStage.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    }
   };
   const renderFinder = (moveFocus) => {
     if (!finder || !finderStage || !finderOptions || !finderResult) return;
